@@ -1,8 +1,10 @@
 #pragma once
 #include <fstream>
 #include <string>
+#include "Reflection.h"
 
-void AOE_DAY_2A(std::ifstream& file) {
+
+AOE_DAY(2A) {
 	std::string command;
 	int delta;
 	int horizontal = 0;
@@ -24,7 +26,7 @@ void AOE_DAY_2A(std::ifstream& file) {
 	std::cout << "Final Position: " << horizontal * depth << std::endl;
 }
 
-void AOE_DAY_2B(std::ifstream& file) {
+AOE_DAY(2B) {
 	std::string command;
 	int delta;
 	int horizontal = 0;

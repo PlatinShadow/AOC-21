@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,12 +141,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Reflection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Days\Day1.h" />
     <ClInclude Include="src\Days\Day2.h" />
     <ClInclude Include="src\Days\Day3.h" />
     <ClInclude Include="src\Days\Days.h" />
+    <ClInclude Include="src\Reflection.h" />
+    <ClInclude Include="src\Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

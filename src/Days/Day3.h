@@ -7,7 +7,7 @@
 
 #define NUMBER_BITS 12
 
-void AOE_DAY_3A(std::ifstream& file) {
+AOE_DAY(3A) {
 	std::string entry;
 
 	int ones[NUMBER_BITS] = {0};
@@ -100,7 +100,7 @@ std::string FindBitCriteria(std::vector<std::string> entries, bool filterForMost
 	return (*filtered)[0];
 }
 
-void AOE_DAY_3B(std::ifstream& file) {
+AOE_DAY(3B) {
 	std::string entry;
 	std::vector<std::string> entries;
 

@@ -5,7 +5,9 @@
 #include <vector>
 #include <iostream>
 
-void AOE_DAY_1A(std::ifstream& file) {
+#include "Reflection.h"
+
+AOE_DAY(1A) {
 	std::string line;
 
 	int prevDepth = 0;
@@ -23,7 +25,7 @@ void AOE_DAY_1A(std::ifstream& file) {
 	std::cout << "Result: " << increments << " increments" << std::endl;
 }
 
-void AOE_DAY_1B(std::ifstream& file) {
+AOE_DAY(1B) {
 	std::string line;
 
 	int m1 = 0;
