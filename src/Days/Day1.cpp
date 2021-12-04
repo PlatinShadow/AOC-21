@@ -5,7 +5,8 @@
 #include <vector>
 #include <iostream>
 
-#include "Reflection.h"
+#include "Core/Reflection.h"
+#include "Core/Logging.h"
 
 AOE_DAY(1A) {
 	std::string line;
@@ -22,7 +23,7 @@ AOE_DAY(1A) {
 		prevDepth = depth;
 	}
 
-	std::cout << "Result: " << increments << " increments" << std::endl;
+	AOE_SUCCESS("Result: " << increments << " increments");
 }
 
 AOE_DAY(1B) {
@@ -59,5 +60,5 @@ AOE_DAY(1B) {
 		increments++;
 	}
 
-	std::cout << "Result: " << increments << " increments" << std::endl;
+	AOE_SUCCESS("Result: " << increments << " increments");
 }

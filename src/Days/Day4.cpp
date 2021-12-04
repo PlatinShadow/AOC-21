@@ -1,9 +1,11 @@
-#include "Reflection.h"
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <iomanip>
+
+#include "Core/Reflection.h"
+#include "Core/Logging.h"
 
 struct BingoBoard
 {
@@ -130,6 +132,6 @@ AOE_DAY(4) {
 	int winnerSum = winner.GetRemainingSum();
 	int loserSum = loser.GetRemainingSum();
 
-	std::cout << "Winner Checksum: " << winnerSum * winnerNumber << std::endl;
-	std::cout << "Loser Checksum: " << loserSum * loserNumber << std::endl;
+	AOE_SUCCESS("Winner Checksum: " << winnerSum * winnerNumber);
+	AOE_SUCCESS("Loser Checksum: " << loserSum * loserNumber);
 }

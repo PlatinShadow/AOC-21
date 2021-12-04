@@ -2,8 +2,9 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-#include "Reflection.h"
 
+#include "Core/Reflection.h"
+#include "Core/Logging.h"
 
 AOE_DAY(2A) {
 	std::string command;
@@ -24,7 +25,7 @@ AOE_DAY(2A) {
 		}
 	}
 
-	std::cout << "Final Position: " << horizontal * depth << std::endl;
+	AOE_SUCCESS("Final Position: " << horizontal * depth);
 }
 
 AOE_DAY(2B) {
@@ -49,5 +50,5 @@ AOE_DAY(2B) {
 		}
 	}
 
-	std::cout << "Final Position: " << horizontal * depth << std::endl;
+	AOE_SUCCESS("Final Position: " << horizontal * depth);
 }

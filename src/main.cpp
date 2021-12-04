@@ -1,27 +1,31 @@
 #include <iostream>
 #include <fstream>
-#include "Reflection.h"
 #include <algorithm>
 #include <string>
 
+#include <fcntl.h>
+#include <io.h>
+
+#include "Core/Reflection.h"
+#include "Core/Logging.h"
+
 void main() {
-	std::cout << "Registered " << AoeLevelStore::Instance().GetLevels().size() << " AOE Levels" << std::endl;
+
+	AOE_INFO("Registered " << AoeLevelStore::Instance().GetLevels().size() << " AOE Levels");
 	std::ifstream infile;
 
 	auto& levels = AoeLevelStore::Instance().GetLevels();
 	
 	for (auto& level : levels) {
-		std::cout << std::endl << std::endl << "---------- Level " << level.Name << " ----------" << std::endl;
+		AOE_INFO("---------- Level " << level.Name << " ----------");
 		
-		//First Run Test Case
-		//std::ifstream testFile("input/" + level.Name);
-
 		std::ifstream infile("input/" + level.Name.substr(0, 1) + ".txt");
 		if (infile.is_open() == false) {
-			std::cout << "Fatal Error: could not open file for level " << level.Name << std::endl;
+			AOE_ERROR("Fatal Error: could not open file for level " << level.Name);
 			return;
 		}
 
 		level.Ptr(infile);
+		std::cout << std::endl;
 	}	
 }

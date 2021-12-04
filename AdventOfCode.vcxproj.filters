@@ -18,7 +18,7 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Reflection.cpp">
+    <ClCompile Include="src\Core\Reflection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Days\Day4.cpp">
@@ -35,10 +35,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Reflection.h">
+    <ClInclude Include="src\Core\Reflection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Util.h">
+    <ClInclude Include="src\Core\Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Logging.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,8 +4,10 @@
 #include <fstream>
 #include <bitset>
 #include <vector>
-#include "Reflection.h"
 #include <sstream>
+
+#include "Core/Reflection.h"
+#include "Core/Logging.h"
 
 #define NUMBER_BITS 12
 
@@ -35,14 +37,11 @@ AOE_DAY(3A) {
 		}
 	}
 
-	std::cout << "Gamma Rate: " << rate << std::endl;
-
 	int gammaRate = (int)rate.to_ulong();
 	rate.flip();
-	std::cout << "Epsilon Rate: " << rate << std::endl;
 	int epsilonRate = (int)rate.to_ulong();
 
-	std::cout << "Total Power Consumption: " << gammaRate * epsilonRate << std::endl;
+	AOE_SUCCESS("Total Power Consumption: " << gammaRate * epsilonRate);
 
 }
 
@@ -117,8 +116,8 @@ AOE_DAY(3B) {
 	int oxyRating = std::stol(strOxyRating, nullptr, 2);
 	int co2Rating = std::stol(strCo2Rating, nullptr, 2);
 
-	std::cout << "Oxy " << oxyRating << " (" << strOxyRating << ")" << std::endl;
-	std::cout << "Co2 " << co2Rating << " (" << strCo2Rating << ")" << std::endl;
+	AOE_DEBUG("Oxy " << oxyRating << " (" << strOxyRating << ")");
+	AOE_DEBUG("Co2 " << co2Rating << " (" << strCo2Rating << ")");
 
-	std::cout << "Life Support Rating: " << oxyRating * co2Rating;
+	AOE_SUCCESS("Life Support Rating: " << oxyRating * co2Rating);
 }
