@@ -25,7 +25,7 @@ AOE_DAY(2A) {
 		}
 	}
 
-	AOE_SUCCESS("Final Position: " << horizontal * depth);
+	return horizontal * depth;
 }
 
 AOE_DAY(2B) {
@@ -50,5 +50,5 @@ AOE_DAY(2B) {
 		}
 	}
 
-	AOE_SUCCESS("Final Position: " << horizontal * depth);
+	return horizontal * depth;
 }

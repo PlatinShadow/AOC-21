@@ -97,7 +97,7 @@ void GetWinnerBoard(std::vector<BingoBoard>& Boards, std::vector<int>& Numbers, 
 	}
 }
 
-AOE_DAY(4) {
+AOE_DAY(4A) {
 	std::vector<BingoBoard> Boards;
 	std::vector<int> Numbers;
 	
@@ -132,6 +132,43 @@ AOE_DAY(4) {
 	int winnerSum = winner.GetRemainingSum();
 	int loserSum = loser.GetRemainingSum();
 
-	AOE_SUCCESS("Winner Checksum: " << winnerSum * winnerNumber);
-	AOE_SUCCESS("Loser Checksum: " << loserSum * loserNumber);
+	return winnerSum * winnerNumber;
+}
+
+AOE_DAY(4B) {
+	std::vector<BingoBoard> Boards;
+	std::vector<int> Numbers;
+
+	std::string instStr;
+	file >> instStr;
+	file.ignore(1, '\n');
+
+	std::stringstream ss(instStr);
+	for (int i; ss >> i;) {
+		Numbers.push_back(i);
+		if (ss.peek() == ',')
+			ss.ignore();
+	}
+
+	BingoBoard tmpBoard;
+
+	int row = 0;
+	while (file >> tmpBoard.Cells[row][0] >> tmpBoard.Cells[row][1] >> tmpBoard.Cells[row][2] >> tmpBoard.Cells[row][3] >> tmpBoard.Cells[row][4]) {
+		row++;
+		if (row > 4) {
+			row = 0;
+			Boards.push_back(tmpBoard);
+		}
+	}
+
+	BingoBoard winner;
+	BingoBoard loser;
+	int winnerNumber = 0;
+	int loserNumber = 0;
+	GetWinnerBoard(Boards, Numbers, &winner, &winnerNumber, &loser, &loserNumber);
+
+	int winnerSum = winner.GetRemainingSum();
+	int loserSum = loser.GetRemainingSum();
+
+	return loserSum * loserNumber;
 }

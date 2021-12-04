@@ -41,7 +41,7 @@ AOE_DAY(3A) {
 	rate.flip();
 	int epsilonRate = (int)rate.to_ulong();
 
-	AOE_SUCCESS("Total Power Consumption: " << gammaRate * epsilonRate);
+	return gammaRate * epsilonRate;
 
 }
 
@@ -119,5 +119,5 @@ AOE_DAY(3B) {
 	AOE_DEBUG("Oxy " << oxyRating << " (" << strOxyRating << ")");
 	AOE_DEBUG("Co2 " << co2Rating << " (" << strCo2Rating << ")");
 
-	AOE_SUCCESS("Life Support Rating: " << oxyRating * co2Rating);
+	return oxyRating * co2Rating;
 }

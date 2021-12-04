@@ -4,7 +4,7 @@
 #include <fstream>
 #include "Core/Util.h"
 
-using AOE_FUNCTION_PTR = void (*)(std::ifstream& file);
+using AOE_FUNCTION_PTR = int (*)(std::ifstream& file);
 
 
 struct AoeLevel {
@@ -33,7 +33,7 @@ public:
 };
 
 #define AOE_DAY(name)																					\
-	void AOE_DAY_##name(std::fstream& file);															\
+	int AOE_DAY_##name(std::fstream& file);																\
 	AoeReflector AOE_DAY_REFLECTOR_##name({(AOE_FUNCTION_PTR)&AOE_DAY_##name, STR(name)});				\
-	void AOE_DAY_##name(std::fstream& file)																\
+	int AOE_DAY_##name(std::fstream& file)																\
 

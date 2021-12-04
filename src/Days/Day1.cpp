@@ -23,7 +23,7 @@ AOE_DAY(1A) {
 		prevDepth = depth;
 	}
 
-	AOE_SUCCESS("Result: " << increments << " increments");
+	return increments;
 }
 
 AOE_DAY(1B) {
@@ -60,5 +60,6 @@ AOE_DAY(1B) {
 		increments++;
 	}
 
-	AOE_SUCCESS("Result: " << increments << " increments");
+
+	return increments;
 }
