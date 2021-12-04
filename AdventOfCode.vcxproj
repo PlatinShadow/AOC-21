@@ -117,6 +117,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,14 +141,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Days\Day1.cpp" />
+    <ClCompile Include="src\Days\Day2.cpp" />
+    <ClCompile Include="src\Days\Day3.cpp" />
+    <ClCompile Include="src\Days\Day4.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Reflection.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Days\Day1.h" />
-    <ClInclude Include="src\Days\Day2.h" />
-    <ClInclude Include="src\Days\Day3.h" />
-    <ClInclude Include="src\Days\Days.h" />
     <ClInclude Include="src\Reflection.h" />
     <ClInclude Include="src\Util.h" />
   </ItemGroup>

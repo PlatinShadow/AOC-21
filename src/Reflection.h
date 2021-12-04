@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <fstream>
+#include "Util.h"
 
 using AOE_FUNCTION_PTR = void (*)(std::ifstream& file);
 
@@ -24,6 +25,7 @@ private:
 	AoeLevelStore() = default;
 	std::vector<AoeLevel> m_Levels;
 };
+
 
 class AoeReflector {
 public:
