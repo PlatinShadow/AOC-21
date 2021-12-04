@@ -23,6 +23,18 @@ struct BingoBoard
 		return false;
 	}
 
+	int GetRemainingSum() {
+		int sum = 0;
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (Cells[i][j] > 0) {
+					sum += Cells[i][j];
+				}
+			}
+		}
+		return sum;
+	}
+
 	bool DidWin() {
 		for (int i = 0; i < 5; i++) {
 			if (Cells[i][0] < 0 && Cells[i][1] < 0 && Cells[i][2] < 0 && Cells[i][3] < 0 && Cells[i][4] < 0) {
@@ -53,7 +65,10 @@ struct BingoBoard
 };
 
 
-void GetWinnerBoard(std::vector<BingoBoard>& Boards, std::vector<int>& Numbers, BingoBoard* Out_WinnerBoard, int* Out_WinnerNumber){
+void GetWinnerBoard(std::vector<BingoBoard>& Boards, std::vector<int>& Numbers, BingoBoard* Out_WinnerBoard, int* Out_WinnerNumber, BingoBoard* Out_LoserBoard, int* Out_LoserNumber){
+	int nBoardsLeft = Boards.size();
+	bool firstWin = true;
+
 	for (int num : Numbers) {
 		for (auto& board : Boards) {
 			if (board.didWin) {
@@ -63,40 +78,24 @@ void GetWinnerBoard(std::vector<BingoBoard>& Boards, std::vector<int>& Numbers, 
 			board.MarkIfPresent(num);
 
 			if (board.DidWin()) {
-				*Out_WinnerBoard = board;
-				*Out_WinnerNumber = num;
-				return;
-			}
-		}
-	}
-}
+				nBoardsLeft--;
+				if (nBoardsLeft == 0) {
+					*Out_LoserBoard = board;
+					*Out_LoserNumber = num;
+					return;
+				}
 
-void GetLastWinnerBoard(std::vector<BingoBoard>& Boards, std::vector<int>& Numbers, BingoBoard* Out_WinnerBoard, int* Out_WinnerNumber) {
-	int nBoardsLeft = Boards.size();
-	
-	for (int num : Numbers) {
-		for (auto& board : Boards) {
-			if (!board.didWin) {
-
-				board.MarkIfPresent(num);
-				
-
-				if (board.DidWin()) {
-				
-					nBoardsLeft--;
-
-					if (nBoardsLeft == 0) {
-						*Out_WinnerBoard = board;
-						*Out_WinnerNumber = num;
-						return;
-					}
+				if (firstWin) {
+					*Out_WinnerBoard = board;
+					*Out_WinnerNumber = num;
+					firstWin = false;
 				}
 			}
 		}
 	}
 }
 
-AOE_DAY(4A) {
+AOE_DAY(4) {
 	std::vector<BingoBoard> Boards;
 	std::vector<int> Numbers;
 	
@@ -122,61 +121,15 @@ AOE_DAY(4A) {
 		}
 	}
 
-	BingoBoard Winner;
-	int WinnerNumber = 0;
-	GetWinnerBoard(Boards, Numbers, &Winner, &WinnerNumber);
+	BingoBoard winner;
+	BingoBoard loser;
+	int winnerNumber = 0;
+	int loserNumber = 0;
+	GetWinnerBoard(Boards, Numbers, &winner, &winnerNumber, &loser, &loserNumber);
 
-	int sum = 0;
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
-			if (Winner.Cells[i][j] > 0) {
-				sum += Winner.Cells[i][j];
-			}
-		}
-	}
+	int winnerSum = winner.GetRemainingSum();
+	int loserSum = loser.GetRemainingSum();
 
-	std::cout << "Winner Checksum: " << sum * WinnerNumber << std::endl;
-
-}
-
-AOE_DAY(4B) {
-	std::vector<BingoBoard> Boards;
-	std::vector<int> Numbers;
-
-	std::string instStr;
-	file >> instStr;
-	file.ignore(1, '\n');
-
-	std::stringstream ss(instStr);
-	for (int i; ss >> i;) {
-		Numbers.push_back(i);
-		if (ss.peek() == ',')
-			ss.ignore();
-	}
-
-	BingoBoard tmpBoard;
-
-	int row = 0;
-	while (file >> tmpBoard.Cells[row][0] >> tmpBoard.Cells[row][1] >> tmpBoard.Cells[row][2] >> tmpBoard.Cells[row][3] >> tmpBoard.Cells[row][4]) {
-		row++;
-		if (row > 4) {
-			row = 0;
-			Boards.push_back(tmpBoard);
-		}
-	}
-
-	BingoBoard Winner;
-	int WinnerNumber = 0;
-	GetLastWinnerBoard(Boards, Numbers, &Winner, &WinnerNumber);
-
-	int sum = 0;
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
-			if (Winner.Cells[i][j] > 0) {
-				sum += Winner.Cells[i][j];
-			}
-		}
-	}
-
-	std::cout << "Last Winner Checksum: " << sum * WinnerNumber << std::endl;
+	std::cout << "Winner Checksum: " << winnerSum * winnerNumber << std::endl;
+	std::cout << "Loser Checksum: " << loserSum * loserNumber << std::endl;
 }
