@@ -33,7 +33,7 @@ public:
 };
 
 #define AOE_DAY(name)																					\
-	int AOE_DAY_##name(std::fstream& file);																\
+	int AOE_DAY_##name(std::ifstream& file);															\
 	AoeReflector AOE_DAY_REFLECTOR_##name({(AOE_FUNCTION_PTR)&AOE_DAY_##name, STR(name)});				\
-	int AOE_DAY_##name(std::fstream& file)																\
+	int AOE_DAY_##name(std::ifstream& file)																\
 
