@@ -6,7 +6,7 @@
 #include "Core/Reflection.h"
 #include "Core/Logging.h"
 
-AOE_DAY(2A) {
+AOC_DAY(2A) {
 	std::string command;
 	int delta;
 	int horizontal = 0;
@@ -28,7 +28,7 @@ AOE_DAY(2A) {
 	return horizontal * depth;
 }
 
-AOE_DAY(2B) {
+AOC_DAY(2B) {
 	std::string command;
 	int delta;
 	int horizontal = 0;

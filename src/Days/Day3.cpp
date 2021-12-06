@@ -11,7 +11,7 @@
 
 #define NUMBER_BITS 12
 
-AOE_DAY(3A) {
+AOC_DAY(3A) {
 	std::string entry;
 
 	int ones[NUMBER_BITS] = { 0 };
@@ -102,7 +102,7 @@ std::string FindBitCriteria(std::vector<std::string> entries, bool filterForMost
 	return (*filtered)[0];
 }
 
-AOE_DAY(3B) {
+AOC_DAY(3B) {
 	std::string entry;
 	std::vector<std::string> entries;
 
@@ -116,8 +116,8 @@ AOE_DAY(3B) {
 	int oxyRating = std::stol(strOxyRating, nullptr, 2);
 	int co2Rating = std::stol(strCo2Rating, nullptr, 2);
 
-	AOE_DEBUG("Oxy " << oxyRating << " (" << strOxyRating << ")");
-	AOE_DEBUG("Co2 " << co2Rating << " (" << strCo2Rating << ")");
+	AOC_DEBUG("Oxy " << oxyRating << " (" << strOxyRating << ")");
+	AOC_DEBUG("Co2 " << co2Rating << " (" << strCo2Rating << ")");
 
 	return oxyRating * co2Rating;
 }

@@ -4,36 +4,36 @@
 #include <fstream>
 #include "Core/Util.h"
 
-using AOE_FUNCTION_PTR = int (*)(std::ifstream& file);
+using AOC_FUNCTION_PTR = int (*)(std::ifstream& file);
 
 
-struct AoeLevel {
-	AOE_FUNCTION_PTR Ptr;
+struct AOCLevel {
+	AOC_FUNCTION_PTR Ptr;
 	std::string Name;
 };
 
-class AoeLevelStore {
+class AOCLevelStore {
 public:
-	std::vector<AoeLevel>& GetLevels();
-	void RegisterLevel(const AoeLevel& level);
+	std::vector<AOCLevel>& GetLevels();
+	void RegisterLevel(const AOCLevel& level);
 
 	//Singleton
-	static AoeLevelStore& Instance();
-	AoeLevelStore(AoeLevelStore const&) = delete;
-	void operator=(AoeLevelStore const&) = delete;
+	static AOCLevelStore& Instance();
+	AOCLevelStore(AOCLevelStore const&) = delete;
+	void operator=(AOCLevelStore const&) = delete;
 private: 
-	AoeLevelStore() = default;
-	std::vector<AoeLevel> m_Levels;
+	AOCLevelStore() = default;
+	std::vector<AOCLevel> m_Levels;
 };
 
 
-class AoeReflector {
+class AOCReflector {
 public:
-	AoeReflector(AoeLevel level);
+	AOCReflector(AOCLevel level);
 };
 
-#define AOE_DAY(name)																					\
-	int AOE_DAY_##name(std::ifstream& file);															\
-	AoeReflector AOE_DAY_REFLECTOR_##name({(AOE_FUNCTION_PTR)&AOE_DAY_##name, STR(name)});				\
-	int AOE_DAY_##name(std::ifstream& file)																\
+#define AOC_DAY(name)																					\
+	int AOC_DAY_##name(std::ifstream& file);															\
+	AOCReflector AOC_DAY_REFLECTOR_##name({(AOC_FUNCTION_PTR)&AOC_DAY_##name, STR(name)});				\
+	int AOC_DAY_##name(std::ifstream& file)																\
 

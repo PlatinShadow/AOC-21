@@ -3,19 +3,19 @@
 #include <fstream>
 #include <string>
 
-AoeReflector::AoeReflector(AoeLevel level) {
-	AoeLevelStore::Instance().RegisterLevel(level);
+AOCReflector::AOCReflector(AOCLevel level) {
+	AOCLevelStore::Instance().RegisterLevel(level);
 }
 
-void AoeLevelStore::RegisterLevel(const AoeLevel& level) {
+void AOCLevelStore::RegisterLevel(const AOCLevel& level) {
 	m_Levels.push_back(level);
 }
 
-std::vector<AoeLevel>& AoeLevelStore::GetLevels() {
+std::vector<AOCLevel>& AOCLevelStore::GetLevels() {
 	return m_Levels;
 }
 
-AoeLevelStore& AoeLevelStore::Instance() {
-	static AoeLevelStore instance;
+AOCLevelStore& AOCLevelStore::Instance() {
+	static AOCLevelStore instance;
 	return instance;
 }

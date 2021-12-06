@@ -8,7 +8,7 @@
 #include "Core/Reflection.h"
 #include "Core/Logging.h"
 
-AOE_DAY(1A) {
+AOC_DAY(1A) {
 	std::string line;
 
 	int prevDepth = 0;
@@ -26,7 +26,7 @@ AOE_DAY(1A) {
 	return increments;
 }
 
-AOE_DAY(1B) {
+AOC_DAY(1B) {
 	std::string line;
 
 	int m1 = 0;

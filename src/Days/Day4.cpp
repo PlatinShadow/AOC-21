@@ -97,7 +97,7 @@ void GetWinnerBoard(std::vector<BingoBoard>& Boards, std::vector<int>& Numbers, 
 	}
 }
 
-AOE_DAY(4A) {
+AOC_DAY(4A) {
 	std::vector<BingoBoard> Boards;
 	std::vector<int> Numbers;
 	
@@ -135,7 +135,7 @@ AOE_DAY(4A) {
 	return winnerSum * winnerNumber;
 }
 
-AOE_DAY(4B) {
+AOC_DAY(4B) {
 	std::vector<BingoBoard> Boards;
 	std::vector<int> Numbers;
 

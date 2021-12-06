@@ -45,7 +45,7 @@ void ParseFile(std::ifstream& file, std::vector<std::array<int, 4>>& lines) {
 	}
 }
 
-AOE_DAY(5A) {
+AOC_DAY(5A) {
 
 	int* map = new int[1000 * 1000];
 	for (int i = 0; i < 1000 * 1000; i++) {
@@ -87,7 +87,7 @@ AOE_DAY(5A) {
 	return sum;
 }
 
-AOE_DAY(5B) {
+AOC_DAY(5B) {
 
 	int* map = new int[1000 * 1000];
 	for (int i = 0; i < 1000 * 1000; i++) {
