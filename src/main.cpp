@@ -33,7 +33,7 @@ void main() {
 			}
 
 			int expectedResult = std::stoi(expectedStr);
-			int result = level.Ptr(testFile);
+			uint64_t result = level.Ptr(testFile);
 			if (result != expectedResult) {
 				AOC_ERROR("Level failed Test Case");
 				AOC_ERROR("Expected: " << expectedResult << " Got: " << result);
@@ -54,7 +54,7 @@ void main() {
 			return;
 		}
 
-		int answer = level.Ptr(infile);
+		uint64_t answer = level.Ptr(infile);
 		AOC_SUCCESS("Answer: " << answer);
 		std::cout << std::endl;
 	}	

@@ -4,7 +4,7 @@
 #include <fstream>
 #include "Core/Util.h"
 
-using AOC_FUNCTION_PTR = int (*)(std::ifstream& file);
+using AOC_FUNCTION_PTR = uint64_t(*)(std::ifstream& file);
 
 
 struct AOCLevel {
@@ -33,7 +33,7 @@ public:
 };
 
 #define AOC_DAY(name)																					\
-	int AOC_DAY_##name(std::ifstream& file);															\
+	uint64_t AOC_DAY_##name(std::ifstream& file);															\
 	AOCReflector AOC_DAY_REFLECTOR_##name({(AOC_FUNCTION_PTR)&AOC_DAY_##name, STR(name)});				\
-	int AOC_DAY_##name(std::ifstream& file)																\
+	uint64_t AOC_DAY_##name(std::ifstream& file)																\
 

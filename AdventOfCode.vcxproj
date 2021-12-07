@@ -146,6 +146,8 @@
     <ClCompile Include="src\Days\Day3.cpp" />
     <ClCompile Include="src\Days\Day4.cpp" />
     <ClCompile Include="src\Days\Day5.cpp" />
+    <ClCompile Include="src\Days\Day6.cpp" />
+    <ClCompile Include="src\Days\Day7.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Core\Reflection.cpp" />
   </ItemGroup>
