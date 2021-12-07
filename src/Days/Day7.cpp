@@ -48,9 +48,7 @@ AOC_DAY(7B) {
 		for (auto& crabPos : positions) {
 
 			int steps = std::abs(crabPos - pos);
-			for (int i = 0; i <= steps; i++) {
-				fuelNeeded += i;
-			}
+			fuelNeeded += (steps * (steps + 1)) / 2;
 		
 		}
 
